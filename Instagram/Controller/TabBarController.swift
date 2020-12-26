@@ -15,6 +15,7 @@ final class TabBarController: UITabBarController {
 
 	// MARK: - LifeCycle
 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,7 +41,6 @@ final class TabBarController: UITabBarController {
 				// Not logged in, present Login VC modally
 				self.present(loginVC, animated: true, completion: nil)
 			}
-
 		}
 
 		
@@ -58,8 +58,12 @@ final class TabBarController: UITabBarController {
 
 } // End
 
+
+// MARK: - UITabBarControllerDelegate
+
 extension TabBarController: UITabBarControllerDelegate {
 
+	// Ask delegate to activate switching on tab menu
 	func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
 
 		// Confirm user selected item for imageSelect VC
@@ -71,8 +75,6 @@ extension TabBarController: UITabBarControllerDelegate {
 				// Present modally
 				self.present(imageSelectVC, animated: true, completion: nil)
 			}
-
-
 
 			// De-activate switching on tabbar
 			return false
