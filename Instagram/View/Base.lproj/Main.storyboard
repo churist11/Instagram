@@ -10,7 +10,7 @@
         <!--Login View Controller-->
         <scene sceneID="6tq-dq-Rl3">
             <objects>
-                <viewController storyboardIdentifier="Login" id="1Zf-ig-Ks8" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Login" modalPresentationStyle="fullScreen" id="1Zf-ig-Ks8" customClass="LoginViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qgn-Ky-AzB">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,6 +45,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Wx4-05-BwG"/>
                                 </constraints>
                                 <state key="normal" title="ログイン" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLoginButton:" destination="1Zf-ig-Ks8" eventType="touchUpInside" id="NAR-1U-rnC"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-KI-4s9">
                                 <rect key="frame" x="57" y="306" width="300" height="40"/>
@@ -52,6 +55,9 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ba2-rU-M5d"/>
                                 </constraints>
                                 <state key="normal" title="アカウント作成" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCreateAccountButton:" destination="1Zf-ig-Ks8" eventType="touchUpInside" id="2Fs-tI-dvY"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -69,6 +75,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ylJ-eC-DoJ"/>
                     </view>
+                    <connections>
+                        <outlet property="displayNameTextField" destination="zFm-BS-joS" id="Xjm-XJ-AiH"/>
+                        <outlet property="mailAddressTextField" destination="UsZ-0Y-2Gr" id="F0d-jZ-FTX"/>
+                        <outlet property="passwordTextField" destination="Tv4-9O-NIy" id="bvL-UQ-i8d"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ErK-a9-eXe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
