@@ -13,7 +13,14 @@ class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		// Conform to protocol
+		self.delegate = self
+
+		// Set up tab menu appearance
+		self.tabBar.tintColor = UIColor(red: 1.0, green: 0.44, blue: 0.11, alpha: 1)
+
+		self.tabBar.barTintColor = UIColor(red: 0.96, green: 0.91, blue: 0.87, alpha: 1)
+
     }
     
 
@@ -26,5 +33,10 @@ class TabBarController: UITabBarController {
         // Pass the selected object to the new view controller.
     }
     */
+
+} // End
+
+extension TabBarController: UITabBarControllerDelegate {
+
 
 }
