@@ -59,16 +59,24 @@
                                     <action selector="handleCreateAccountButton:" destination="1Zf-ig-Ks8" eventType="touchUpInside" id="2Fs-tI-dvY"/>
                                 </connections>
                             </button>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuN-xQ-Wna">
+                                <rect key="frame" x="186" y="437.5" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.95245612160000004" green="0.0" blue="0.01190324507" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Tv4-9O-NIy" firstAttribute="top" secondItem="UsZ-0Y-2Gr" secondAttribute="bottom" constant="10" id="0zC-aq-fFu"/>
                             <constraint firstItem="zFm-BS-joS" firstAttribute="centerX" secondItem="Qgn-Ky-AzB" secondAttribute="centerX" id="AvP-DS-StC"/>
                             <constraint firstItem="Tv4-9O-NIy" firstAttribute="centerX" secondItem="Qgn-Ky-AzB" secondAttribute="centerX" id="CvQ-DT-MaB"/>
+                            <constraint firstItem="fuN-xQ-Wna" firstAttribute="centerX" secondItem="Qgn-Ky-AzB" secondAttribute="centerX" id="IH2-hk-uYe"/>
                             <constraint firstItem="EWQ-KI-4s9" firstAttribute="centerX" secondItem="Qgn-Ky-AzB" secondAttribute="centerX" id="Ncb-bJ-QlJ"/>
                             <constraint firstItem="dYa-mL-U4h" firstAttribute="top" secondItem="zFm-BS-joS" secondAttribute="bottom" constant="10" id="RkG-U0-wUf"/>
                             <constraint firstItem="dYa-mL-U4h" firstAttribute="centerX" secondItem="Qgn-Ky-AzB" secondAttribute="centerX" id="RzL-3d-HfY"/>
                             <constraint firstItem="UsZ-0Y-2Gr" firstAttribute="top" secondItem="ylJ-eC-DoJ" secondAttribute="top" constant="80" id="dJk-Iq-faf"/>
+                            <constraint firstItem="fuN-xQ-Wna" firstAttribute="centerY" secondItem="Qgn-Ky-AzB" secondAttribute="centerY" id="fJ2-Et-EQW"/>
                             <constraint firstItem="EWQ-KI-4s9" firstAttribute="top" secondItem="dYa-mL-U4h" secondAttribute="bottom" constant="10" id="lrP-Yo-1eW"/>
                             <constraint firstItem="UsZ-0Y-2Gr" firstAttribute="centerX" secondItem="Qgn-Ky-AzB" secondAttribute="centerX" id="rPG-A2-YuJ"/>
                             <constraint firstItem="zFm-BS-joS" firstAttribute="top" secondItem="Tv4-9O-NIy" secondAttribute="bottom" constant="10" id="zXe-yv-FTL"/>
@@ -76,6 +84,7 @@
                         <viewLayoutGuide key="safeArea" id="ylJ-eC-DoJ"/>
                     </view>
                     <connections>
+                        <outlet property="alertLabel" destination="fuN-xQ-Wna" id="HXg-95-JKy"/>
                         <outlet property="displayNameTextField" destination="zFm-BS-joS" id="Xjm-XJ-AiH"/>
                         <outlet property="mailAddressTextField" destination="UsZ-0Y-2Gr" id="F0d-jZ-FTX"/>
                         <outlet property="passwordTextField" destination="Tv4-9O-NIy" id="bvL-UQ-i8d"/>
