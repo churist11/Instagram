@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import Firebase
+import Firebase
 
 
 final class TabBarController: UITabBarController {
@@ -32,9 +32,16 @@ final class TabBarController: UITabBarController {
 		super.viewDidAppear(animated)
 
 		// Check user have already login
-//		if Auth.auth().currentUser == nil {
-//
-//		}
+		if Auth.auth().currentUser == nil {
+
+			// Get reference to login scene from storyboard
+			if let loginVC = self.storyboard?.instantiateViewController(identifier: "Login") {
+
+				// Not logged in, present Login VC modally
+				self.present(loginVC, animated: true, completion: nil)
+			}
+
+		}
 
 		
 	}
