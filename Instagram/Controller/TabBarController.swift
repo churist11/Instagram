@@ -35,7 +35,7 @@ final class TabBarController: UITabBarController {
 		if Auth.auth().currentUser == nil {
 
 			// Get reference to login scene from storyboard
-			if let loginVC = self.storyboard?.instantiateViewController(identifier: "Login") {
+			if let loginVC = self.storyboard?.instantiateViewController(identifier: C.ID_LOGIN_VC) {
 
 				// Not logged in, present Login VC modally
 				self.present(loginVC, animated: true, completion: nil)
@@ -66,7 +66,7 @@ extension TabBarController: UITabBarControllerDelegate {
 		if viewController is ImageSelectViewController {
 
 			// Get reference to imageSelect VC from storyboard
-			if let imageSelectVC = self.storyboard?.instantiateViewController(identifier: "ImageSelect") {
+			if let imageSelectVC = self.storyboard?.instantiateViewController(identifier: C.ID_IMAGE_SELECT_VC) {
 
 				// Present modally
 				self.present(imageSelectVC, animated: true, completion: nil)
