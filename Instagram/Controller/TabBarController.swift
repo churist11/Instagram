@@ -38,5 +38,29 @@ class TabBarController: UITabBarController {
 
 extension TabBarController: UITabBarControllerDelegate {
 
+	func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+
+		// Confirm user selected item for imageSelect VC
+		if viewController is ImageSelectViewController {
+
+			// Get reference to imageSelect VC from storyboard
+			if let imageSelectVC = self.storyboard?.instantiateViewController(identifier: "ImageSelect") {
+
+				// Present modally
+				self.present(imageSelectVC, animated: true, completion: nil)
+			}
+
+
+
+			// De-activate switching on tabbar
+			return false
+
+			// Selected Other button
+		} else {
+
+			// Activate swiching on tabbar
+			return true
+		}
+	}
 
 }
