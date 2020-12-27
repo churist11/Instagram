@@ -35,6 +35,45 @@ final class LoginViewController: UIViewController {
 
 
 	@IBAction func handleLoginButton(_ sender: UIButton) {
+
+		// Optional binding
+		if let email = self.mailAddressTextField.text,
+			let pass = self.passwordTextField.text {
+
+			// Confirm field has any text
+			guard (email.isEmpty == false) && (pass.isEmpty == false) else {
+				print("DEBUG_PRINT: There is empty text field.")
+				return
+			}
+
+			// Perform sign in
+			Auth.auth().signIn(withEmail: email, password: pass) { (authResult, error) in
+
+				// Error handling
+				guard error == nil else {
+					// <<Signin Failed>>
+					// 1. Log error
+					print("DEBUG_PRINT:  \(error!)")
+
+					// 2. Display alert for user
+					self.alertLabel.isHidden = false
+					self.alertLabel.text = "\(error!.localizedDescription)"
+
+					// 3. Through out method
+					return
+				}
+
+				// <<Signin Successed>>
+				// 1. Log message
+				print("DEBUG_PRINT:" + "Success login")
+
+				// 2. Re-hide alert label
+				self.alertLabel.isHidden = true
+
+				// 3. Close current scene
+				self.dismiss(animated: true, completion: nil)
+			}
+		}
 	}
 
 	@IBAction func handleCreateAccountButton(_ sender: UIButton) {
