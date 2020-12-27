@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 final class LoginViewController: UIViewController {
 
@@ -46,6 +47,8 @@ final class LoginViewController: UIViewController {
 				return
 			}
 
+			// TODO: - Start progress animation
+
 			// Perform sign in
 			Auth.auth().signIn(withEmail: email, password: pass) { (authResult, error) in
 
@@ -54,6 +57,8 @@ final class LoginViewController: UIViewController {
 					// <<Signin Failed>>
 					// 1. Log error
 					print("DEBUG_PRINT:  \(error!)")
+
+					// TODO: - Add error message to the progressHUD
 
 					// 2. Display alert for user
 					self.alertLabel.isHidden = false
@@ -69,6 +74,8 @@ final class LoginViewController: UIViewController {
 
 				// 2. Re-hide alert label
 				self.alertLabel.isHidden = true
+				
+				// TODO: - Stop the progress animation
 
 				// 3. Close current scene
 				self.dismiss(animated: true, completion: nil)
@@ -89,12 +96,16 @@ final class LoginViewController: UIViewController {
 				return
 			}
 
+			// TODO: - Start progress animation
+
 			// Confirm All text field is inputed, then create new account
 			Auth.auth().createUser(withEmail: email, password: pass) { (result, error) in
 
 				// <<Fail creation>>
 				// 1. Catch error
 				guard error == nil else {
+
+					// TODO: - Add error message to the progressHUD
 
 					// 2. display alert for user
 					self.alertLabel.isHidden = false
@@ -134,6 +145,8 @@ final class LoginViewController: UIViewController {
 
 						// Log success
 						print("DEBUG_PRINT: Set display name: \(user.displayName!)")
+
+						// TODO: - Stop the progress animation
 
 						// Close current scene to TabBar scene
 						self.dismiss(animated: true, completion: nil)
