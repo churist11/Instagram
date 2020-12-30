@@ -8,19 +8,26 @@
 
 import UIKit
 
-final class ImageSelectViewController: UIViewController {
+final class ImageSelectViewController: UIViewController, UINavigationControllerDelegate {
+
+	// MARK: Stored Property -
+
+	let imagePickerController = UIImagePickerController()
 
 	// MARK: LifeCycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        // Conform to protocol
+		self.imagePickerController.delegate = self
     }
 
 	// MARK: IBAction -
 
 	@IBAction func handleLibraryButton(_ sender: UIButton) {
+
+		//
 	}
 
 	@IBAction func handleCameraButton(_ sender: UIButton) {
@@ -37,5 +44,9 @@ final class ImageSelectViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+} // MARK: endline
+
+extension ImageSelectViewController: UIImagePickerControllerDelegate {
 
 }
