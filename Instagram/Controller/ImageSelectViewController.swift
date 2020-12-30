@@ -12,7 +12,7 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 	// MARK: Stored Property -
 
-	let imagePickerController = UIImagePickerController()
+	private let imagePickerController = UIImagePickerController()
 
 	// MARK: LifeCycle -
 
@@ -27,13 +27,35 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 	@IBAction func handleLibraryButton(_ sender: UIButton) {
 
-		//
+		// Check source type availability
+		if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+
+			// Designate source type
+			self.imagePickerController.sourceType = .photoLibrary
+
+			// Present image library modally
+			self.present(self.imagePickerController, animated: true, completion: nil)
+		}
 	}
 
 	@IBAction func handleCameraButton(_ sender: UIButton) {
+
+		// Check source type availability
+		if UIImagePickerController.isSourceTypeAvailable(.camera) {
+
+			// Designate source type
+			self.imagePickerController.sourceType = .camera
+
+			// Present image library modally
+			self.present(self.imagePickerController, animated: true, completion: nil)
+		}
+
 	}
 
 	@IBAction func handleCancelButton(_ sender: UIButton) {
+
+		// Close scene
+		self.dismiss(animated: true, completion: nil)
 	}
 	/*
     // MARK: - Navigation
