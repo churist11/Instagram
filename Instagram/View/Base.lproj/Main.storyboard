@@ -40,7 +40,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dYa-mL-U4h">
-                                <rect key="frame" x="57" y="256" width="300" height="40"/>
+                                <rect key="frame" x="-93" y="256" width="600" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="Wx4-05-BwG"/>
                                 </constraints>
@@ -50,7 +50,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWQ-KI-4s9">
-                                <rect key="frame" x="57" y="306" width="300" height="40"/>
+                                <rect key="frame" x="-93" y="346" width="600" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="ba2-rU-M5d"/>
                                 </constraints>
@@ -151,14 +151,55 @@
                     <view key="view" contentMode="scaleToFill" id="v5I-2n-XxD">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sFm-cc-x7j">
+                                <rect key="frame" x="57" y="124" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="DHQ-td-HBI"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2jX-c1-tmF">
+                                <rect key="frame" x="57" y="168" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="kSX-rq-1KX"/>
+                                </constraints>
+                                <state key="normal" title="表示名を変更" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleChangeNameButton:" destination="L69-nF-9cw" eventType="touchUpInside" id="G1I-H6-TZj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N9z-qP-K5Z">
+                                <rect key="frame" x="57" y="218" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="s6k-XZ-krW"/>
+                                </constraints>
+                                <state key="normal" title="ログアウト" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleLogOutButtton:" destination="L69-nF-9cw" eventType="touchUpInside" id="hQq-qS-4Cq"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBrownColor" red="0.63529411759999999" green="0.51764705879999995" blue="0.36862745099999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="sFm-cc-x7j" firstAttribute="centerX" secondItem="v5I-2n-XxD" secondAttribute="centerX" id="HOi-kf-VUl"/>
+                            <constraint firstItem="2jX-c1-tmF" firstAttribute="centerX" secondItem="v5I-2n-XxD" secondAttribute="centerX" id="Pxb-JH-2PE"/>
+                            <constraint firstItem="N9z-qP-K5Z" firstAttribute="centerX" secondItem="v5I-2n-XxD" secondAttribute="centerX" id="WVB-x9-UYr"/>
+                            <constraint firstItem="sFm-cc-x7j" firstAttribute="top" secondItem="3vi-Wo-iKf" secondAttribute="top" constant="80" id="u0P-ob-aog"/>
+                            <constraint firstItem="N9z-qP-K5Z" firstAttribute="top" secondItem="2jX-c1-tmF" secondAttribute="bottom" constant="10" id="uRU-Bg-GxU"/>
+                            <constraint firstItem="2jX-c1-tmF" firstAttribute="top" secondItem="sFm-cc-x7j" secondAttribute="bottom" constant="10" id="wh4-w8-7MM"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="3vi-Wo-iKf"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="設定" image="setting" id="2MQ-LR-I5m"/>
+                    <connections>
+                        <outlet property="textField" destination="sFm-cc-x7j" id="kiI-iK-5Hr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zgL-t4-TKc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="267" y="-664"/>
+            <point key="canvasLocation" x="266.66666666666669" y="-664.28571428571422"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="k96-ZP-01r">
