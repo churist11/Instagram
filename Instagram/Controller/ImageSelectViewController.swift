@@ -12,7 +12,7 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 	// MARK: Stored Property -
 
-	private let imagePickerController = UIImagePickerController()
+	private var imagePickerController = UIImagePickerController()
 
 	// MARK: LifeCycle -
 
@@ -69,6 +69,30 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 } // MARK: endline
 
+// MARK: UIImagePickerControllerDelegate -
+
 extension ImageSelectViewController: UIImagePickerControllerDelegate {
+
+	// Did finish picking image
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+		// Get media info
+		guard let image = info[.originalImage] as? UIImage else {
+			return
+		}
+
+		// Log info
+		print("DEBUG_PRINT: \(image)")
+
+		// TODO: Navigate to edit screen
+
+	}
+
+	// Did handle 'cancel' button in picker
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+
+		// Close VCs and back to tab menu scene
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+	}
 
 }
