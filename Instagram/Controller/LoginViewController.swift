@@ -63,7 +63,7 @@ final class LoginViewController: UIViewController {
 					print("DEBUG_PRINT:  \(error!)")
 
 					// Show error message to the progressHUD
-					SVProgressHUD.showError(withStatus: "サインインに失敗しました")
+					SVProgressHUD.showError(withStatus: "ログインに失敗しました")
 
 					// 2. Display alert for user
 					self.alertLabel.isHidden = false
@@ -81,7 +81,7 @@ final class LoginViewController: UIViewController {
 				self.alertLabel.isHidden = true
 
 				// Stop the progress animation
-				SVProgressHUD.showSuccess(withStatus: "サインインに成功しました")
+				SVProgressHUD.showSuccess(withStatus: "ログインに成功しました")
 
 				// 3. Close current scene
 				self.dismiss(animated: true, completion: nil)

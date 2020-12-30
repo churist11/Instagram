@@ -99,6 +99,38 @@ final class SettingViewController: UIViewController {
 	}
 
 	@IBAction func handleLogOutButtton(_ sender: UIButton) {
+
+		// Show signout progress
+		SVProgressHUD.show()
+
+		// Perform logout
+		do {
+			try Auth.auth().signOut()
+		} catch let e {
+
+			// Log error
+			print("DEBUG_PRINT: \(e)")
+
+			// Show error message on HUD
+			SVProgressHUD.showError(withStatus: "ログアウト失敗")
+
+			// Leave method
+			return
+		}
+
+		// Get ref to LoginVC
+		guard let loginVC = self.storyboard?.instantiateViewController(identifier: C.ID_LOGIN_VC) else {
+			return
+		}
+
+		// Show message on HUD
+		SVProgressHUD.showSuccess(withStatus: "ログアウトしました")
+
+		// Present Login scene modally
+		self.present(loginVC, animated: true, completion: nil)
+
+		// Set tab menu to Home scene
+		self.tabBarController?.selectedIndex = 0
 	}
 	/*
     // MARK: - Navigation
