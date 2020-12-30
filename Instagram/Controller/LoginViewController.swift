@@ -50,7 +50,7 @@ final class LoginViewController: UIViewController {
 				return
 			}
 
-			// TODO: - Start progress animation
+			// Start progress animation
 			SVProgressHUD.show(withStatus: "ユーザデータを照合中...")
 
 			// Perform sign in
@@ -62,7 +62,7 @@ final class LoginViewController: UIViewController {
 					// 1. Log error
 					print("DEBUG_PRINT:  \(error!)")
 
-					// TODO: - Add error message to the progressHUD
+					// Show error message to the progressHUD
 					SVProgressHUD.showError(withStatus: "サインインに失敗しました")
 
 					// 2. Display alert for user
@@ -80,7 +80,7 @@ final class LoginViewController: UIViewController {
 				// 2. Re-hide alert label
 				self.alertLabel.isHidden = true
 
-				// TODO: - Stop the progress animation
+				// Stop the progress animation
 				SVProgressHUD.showSuccess(withStatus: "サインインに成功しました")
 
 				// 3. Close current scene
@@ -105,7 +105,7 @@ final class LoginViewController: UIViewController {
 				return
 			}
 
-			// TODO: - Start progress animation
+			// Start progress animation
 			SVProgressHUD.show(withStatus: "アカウント作成中...")
 
 			// Confirm All text field is inputed, then create new account
@@ -115,7 +115,7 @@ final class LoginViewController: UIViewController {
 				// 1. Catch error
 				guard error == nil else {
 
-					// TODO: - Add error message to the progressHUD
+					// Show error message to the progressHUD
 					SVProgressHUD.showError(withStatus: "作成に失敗しました")
 
 					// 2. display alert for user
@@ -157,7 +157,7 @@ final class LoginViewController: UIViewController {
 						// Log success
 						print("DEBUG_PRINT: Set display name: \(user.displayName!)")
 
-						// TODO: - Stop the progress animation
+						// Stop the progress animation
 						SVProgressHUD.showSuccess(withStatus: "ようこそ！")
 
 						// Close current scene to TabBar scene

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 final class SettingViewController: UIViewController {
 
@@ -42,6 +43,59 @@ final class SettingViewController: UIViewController {
 	// MARK: IBAction -
 
 	@IBAction func handleChangeNameButton(_ sender: UIButton) {
+
+		// Optional binding
+		if let newName = self.textField.text {
+
+			// Confirm the text field has text
+			guard newName.isEmpty == false else {
+
+				// Display error HUD
+				SVProgressHUD.showError(withStatus: "表示名を入力して下さい")
+
+				// Leave method
+				return
+			}
+
+			// Start progress animation
+			SVProgressHUD.show(withStatus: "変更中...")
+
+			// <<Change name process>>
+			if let user = Auth.auth().currentUser {
+
+				// Get reference to change request
+				let changeRequest = user.createProfileChangeRequest()
+
+				// Set display name
+				changeRequest.displayName = newName
+
+				// Save profile update
+				changeRequest.commitChanges { (error) in
+
+					// Catch error and print description
+					guard error == nil else {
+
+						// Log the error
+						print("DEBUG_PRINT: \(error!)")
+
+						// Show error message on HUD
+						SVProgressHUD.showError(withStatus: "表示名の変更に失敗しました")
+
+						// Leave method
+						return
+					}
+
+					// Log success
+					print("DEBUG_PRINT: Set display name: \(user.displayName!)")
+
+					// Stop the progress animation
+					SVProgressHUD.showSuccess(withStatus: "変更完了")
+
+					// Close keyboard
+					self.textField.endEditing(true)
+				}
+			}
+		}
 	}
 
 	@IBAction func handleLogOutButtton(_ sender: UIButton) {
