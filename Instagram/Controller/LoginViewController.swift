@@ -44,10 +44,14 @@ final class LoginViewController: UIViewController {
 			// Confirm field has any text
 			guard (email.isEmpty == false) && (pass.isEmpty == false) else {
 				print("DEBUG_PRINT: There is empty text field.")
+				SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+
+				// Do nothing , throughout method
 				return
 			}
 
 			// TODO: - Start progress animation
+			SVProgressHUD.show(withStatus: "ユーザデータを照合中...")
 
 			// Perform sign in
 			Auth.auth().signIn(withEmail: email, password: pass) { (authResult, error) in
@@ -59,10 +63,11 @@ final class LoginViewController: UIViewController {
 					print("DEBUG_PRINT:  \(error!)")
 
 					// TODO: - Add error message to the progressHUD
+					SVProgressHUD.showError(withStatus: "サインインに失敗しました")
 
 					// 2. Display alert for user
 					self.alertLabel.isHidden = false
-					self.alertLabel.text = "\(error!.localizedDescription)"
+					self.alertLabel.text = "ログインエラー: \(error!.localizedDescription)"
 
 					// 3. Through out method
 					return
@@ -74,8 +79,9 @@ final class LoginViewController: UIViewController {
 
 				// 2. Re-hide alert label
 				self.alertLabel.isHidden = true
-				
+
 				// TODO: - Stop the progress animation
+				SVProgressHUD.showSuccess(withStatus: "サインインに成功しました")
 
 				// 3. Close current scene
 				self.dismiss(animated: true, completion: nil)
@@ -93,10 +99,14 @@ final class LoginViewController: UIViewController {
 			// If There is empty textfield, do notihng
 			guard (email.isEmpty == false) && (pass.isEmpty == false) && (name.isEmpty == false) else {
 				print("DEBUG_PRINT: There is empty text field.")
+				SVProgressHUD.showError(withStatus: "必要項目を入力して下さい")
+
+				// Do nothing, throughout method
 				return
 			}
 
 			// TODO: - Start progress animation
+			SVProgressHUD.show(withStatus: "アカウント作成中...")
 
 			// Confirm All text field is inputed, then create new account
 			Auth.auth().createUser(withEmail: email, password: pass) { (result, error) in
@@ -106,10 +116,11 @@ final class LoginViewController: UIViewController {
 				guard error == nil else {
 
 					// TODO: - Add error message to the progressHUD
+					SVProgressHUD.showError(withStatus: "作成に失敗しました")
 
 					// 2. display alert for user
 					self.alertLabel.isHidden = false
-					self.alertLabel.text = "\(error!.localizedDescription)"
+					self.alertLabel.text = "作成エラー: \(error!.localizedDescription)"
 
 					print("DEBUG_PRINT: \(error!)")
 
@@ -119,7 +130,7 @@ final class LoginViewController: UIViewController {
 
 
 				// <<Success creation>>
-				print("DEBUG_PRINT: Success account creation!!")
+				print("DEBUG_PRINT: into creation process")
 
 				// 1. Re-hide alert label
 				self.alertLabel.isHidden = true
@@ -147,6 +158,7 @@ final class LoginViewController: UIViewController {
 						print("DEBUG_PRINT: Set display name: \(user.displayName!)")
 
 						// TODO: - Stop the progress animation
+						SVProgressHUD.showSuccess(withStatus: "ようこそ！")
 
 						// Close current scene to TabBar scene
 						self.dismiss(animated: true, completion: nil)
