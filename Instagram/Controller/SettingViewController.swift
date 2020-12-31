@@ -119,7 +119,7 @@ final class SettingViewController: UIViewController {
 		}
 
 		// Get ref to LoginVC
-		guard let loginVC = self.storyboard?.instantiateViewController(identifier: C.ID_LOGIN_VC) else {
+		guard let loginVC = self.storyboard?.instantiateViewController(identifier: C.ID_LOGIN_VC) as? LoginViewController else {
 			return
 		}
 
