@@ -7,11 +7,17 @@
 //
 
 import UIKit
+import Firebase
+import SVProgressHUD
 
 final class PostViewController: UIViewController {
 
+	// MARK: - Stored Property
+
+	internal var postingImage: UIImage!
+
 	// MARK: - IBOutlet
-	
+
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var captionTextField: UITextField!
 
@@ -20,7 +26,8 @@ final class PostViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+		// Set edited image to image view
+		self.imageView.image = self.postingImage
     }
 
 	// MARK: - IBAction
