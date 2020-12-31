@@ -7,20 +7,19 @@
 //
 
 import UIKit
+import CLImageEditor
 
 final class ImageSelectViewController: UIViewController, UINavigationControllerDelegate {
 
 	// MARK: Stored Property -
 
-	private var imagePickerController = UIImagePickerController()
+	private var imagePickerController: UIImagePickerController!
+	private var clImageEditor: CLImageEditor!
 
 	// MARK: LifeCycle -
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Conform to protocol
-		self.imagePickerController.delegate = self
     }
 
 	// MARK: IBAction -
@@ -29,6 +28,12 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 		// Check source type availability
 		if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
+
+			// Initialize image picker controller
+			self.imagePickerController = UIImagePickerController()
+
+			// Conform to protocol
+			self.imagePickerController.delegate = self
 
 			// Designate source type
 			self.imagePickerController.sourceType = .photoLibrary
@@ -42,6 +47,12 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 		// Check source type availability
 		if UIImagePickerController.isSourceTypeAvailable(.camera) {
+
+			// Initialize image picker controller
+			self.imagePickerController = UIImagePickerController()
+
+			// Conform to protocol
+			self.imagePickerController.delegate = self
 
 			// Designate source type
 			self.imagePickerController.sourceType = .camera
@@ -69,9 +80,9 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 } // MARK: endline
 
-// MARK: UIImagePickerControllerDelegate -
+// MARK: UIImagePickerControllerDelegate + CLImageEditorDelegate -
 
-extension ImageSelectViewController: UIImagePickerControllerDelegate {
+extension ImageSelectViewController: UIImagePickerControllerDelegate, CLImageEditorDelegate {
 
 	// Did finish picking image
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -84,8 +95,19 @@ extension ImageSelectViewController: UIImagePickerControllerDelegate {
 		// Log info
 		print("DEBUG_PRINT: \(image)")
 
-		// TODO: Navigate to edit screen
+		// <Open image editor>
 
+		// 1. Initialize with selected image
+		self.clImageEditor = CLImageEditor(image: image)
+
+		// 2. Confirm to protocol
+		self.clImageEditor.delegate = self
+
+		// 3. Configure modal style
+		self.clImageEditor.modalPresentationStyle = .fullScreen
+
+		// 4. Open editor over the image picker
+		picker.present(self.clImageEditor, animated: true, completion: nil)
 	}
 
 	// Did handle 'cancel' button in picker
