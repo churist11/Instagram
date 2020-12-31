@@ -11,18 +11,18 @@ import CLImageEditor
 
 final class ImageSelectViewController: UIViewController, UINavigationControllerDelegate {
 
-	// MARK: Stored Property -
+	// MARK: - Stored Property
 
 	private var imagePickerController: UIImagePickerController!
 	private var clImageEditor: CLImageEditor!
 
-	// MARK: LifeCycle -
+	// MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
 
-	// MARK: IBAction -
+	// MARK: - IBAction
 
 	@IBAction func handleLibraryButton(_ sender: UIButton) {
 
@@ -65,7 +65,7 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 	@IBAction func handleCancelButton(_ sender: UIButton) {
 
-		// Close scene
+		// Close the image picker
 		self.dismiss(animated: true, completion: nil)
 	}
 	/*
@@ -80,9 +80,11 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
 
 } // MARK: endline
 
-// MARK: UIImagePickerControllerDelegate + CLImageEditorDelegate -
+// MARK: - UIImagePickerControllerDelegate + CLImageEditorDelegate
 
 extension ImageSelectViewController: UIImagePickerControllerDelegate, CLImageEditorDelegate {
+
+	// MARK: UIImagePickerControllerDelegate
 
 	// Did finish picking image
 	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
@@ -114,6 +116,34 @@ extension ImageSelectViewController: UIImagePickerControllerDelegate, CLImageEdi
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 
 		// Close VCs and back to tab menu scene
+		self.presentingViewController?.dismiss(animated: true, completion: nil)
+	}
+
+	// MARK: CLImageEditorDelegate
+
+	// Did finish edit image
+	func imageEditor(_ editor: CLImageEditor!, didFinishEditingWith image: UIImage!) {
+
+		// Log Image object
+		print("DEBUG_PRINT: \(image!)")
+
+		// Get ref to PostVC
+		guard let postVC = self.storyboard?.instantiateViewController(identifier: C.ID_POST_VC) as? PostViewController else {
+			return
+		}
+
+		// Configure modal style
+		postVC.modalPresentationStyle = .automatic
+		postVC.modalTransitionStyle = .crossDissolve
+
+		// Present Post scene modally
+		editor.present(postVC, animated: true, completion: nil)
+	}
+
+	// Did handle "cancel" button in editor
+	func imageEditorDidCancel(_ editor: CLImageEditor!) {
+
+		// Close editor
 		self.presentingViewController?.dismiss(animated: true, completion: nil)
 	}
 
