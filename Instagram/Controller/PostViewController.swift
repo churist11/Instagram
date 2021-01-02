@@ -33,9 +33,16 @@ final class PostViewController: UIViewController {
 	// MARK: - IBAction
 
 	@IBAction func handlePostButton(_ sender: UIButton) {
+
+		//
 	}
 
 	@IBAction func handleCancelButton(_ sender: UIButton) {
+
+		// Close this VC
+//		self.presentingViewController?.dismiss(animated: true, completion: nil)
+
+		self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
 	}
 	/*
     // MARK: - Navigation
