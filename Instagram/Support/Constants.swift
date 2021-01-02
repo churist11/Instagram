@@ -10,9 +10,17 @@ import Foundation
 
 
 struct C {
+
+	// MARK: - VC
+
 	static let ID_LOGIN_VC = "Login"
 	static let ID_HOME_VC = "Home"
 	static let ID_IMAGE_SELECT_VC = "ImageSelect"
 	static let ID_POST_VC = "Post"
 	static let ID_SETTING_VC = "Setting"
+
+	// MARK: - Firebase
+
+	static let ImagePath = "images"
+	static let PostPath = "posts"
 }
