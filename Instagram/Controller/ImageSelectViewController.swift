@@ -136,6 +136,9 @@ extension ImageSelectViewController: UIImagePickerControllerDelegate, CLImageEdi
 		postVC.modalPresentationStyle = .automatic
 		postVC.modalTransitionStyle = .crossDissolve
 
+		// Pass edited image to PostVC
+		postVC.postingImage = image
+
 		// Present Post scene modally
 		editor.present(postVC, animated: true, completion: nil)
 	}
