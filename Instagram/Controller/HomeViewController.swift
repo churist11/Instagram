@@ -11,15 +11,31 @@ import Firebase
 
 final class HomeViewController: UIViewController {
 
-    override func viewDidLoad() {
+	// MARK: - IBOutlet
+
+	@IBOutlet weak var tableView: UITableView!
+
+	// MARK: - LifeCycle
+
+	override func viewDidLoad() {
         super.viewDidLoad()
+		// FIXME: For testing
+		//		try! Auth.auth().signOut()
 
-		// For testing
-//		try! Auth.auth().signOut()
+		// Conform to porotocol
+		self.tableView.dataSource = self
+		self.tableView.delegate = self
 
-        // Do any additional setup after loading the view.
+		// <Register custom cell>
+
+		// Initialize NIB
+		let nib = UINib(nibName: C.POST_NIB_NAME, bundle: nil)
+
+		// Register the nib
+		self.tableView.register(nib, forCellReuseIdentifier: C.POST_CELL_ID)
     }
-    
+
+	// MARK: -
 
     /*
     // MARK: - Navigation
@@ -30,5 +46,24 @@ final class HomeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}// MARK: EndLine
+
+// MARK: - UITableViewDataSource + UITableViewDelegate Mehtod
+
+extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
+
+	// MARK: - DataSource
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		// FIXME:
+		return 0
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		// FIXME: 
+		return UITableViewCell()
+
+	}
 
 }

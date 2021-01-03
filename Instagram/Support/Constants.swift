@@ -23,6 +23,10 @@ struct C {
 	static let ID_POST_VC = "Post"
 	static let ID_SETTING_VC = "Setting"
 
+	// MARK: - Custom identifier
+	static let POST_NIB_NAME = "PostTableViewCell"
+	static let POST_CELL_ID = "Cell"
+
 	// MARK: - Firebase
 
 	static let ImagePath = "images"

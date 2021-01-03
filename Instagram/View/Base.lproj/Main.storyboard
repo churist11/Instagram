@@ -104,10 +104,35 @@
                     <view key="view" contentMode="scaleToFill" id="kov-Mq-nan">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-gV-Dtv">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ti8-vm-nSr">
+                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ti8-vm-nSr" id="JjP-YX-qck">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Jkf-gV-Dtv" firstAttribute="leading" secondItem="9Wk-t9-lVi" secondAttribute="leading" id="6av-Nd-q8m"/>
+                            <constraint firstItem="9Wk-t9-lVi" firstAttribute="bottom" secondItem="Jkf-gV-Dtv" secondAttribute="bottom" id="NYh-RM-XfJ"/>
+                            <constraint firstItem="9Wk-t9-lVi" firstAttribute="trailing" secondItem="Jkf-gV-Dtv" secondAttribute="trailing" id="RzD-xY-8bZ"/>
+                            <constraint firstItem="Jkf-gV-Dtv" firstAttribute="top" secondItem="9Wk-t9-lVi" secondAttribute="top" id="eZ4-9s-gAe"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="9Wk-t9-lVi"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ホーム" image="home" id="24Q-v2-9oF"/>
+                    <connections>
+                        <outlet property="tableView" destination="Jkf-gV-Dtv" id="Gsf-dz-FkZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SSG-4s-lnK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
