@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2F0A6EDA25A173A50069D1DE /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A6ED925A173A50069D1DE /* PostData.swift */; };
+		2F0A6EDD25A1843A0069D1DE /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A6EDB25A1843A0069D1DE /* PostTableViewCell.swift */; };
+		2F0A6EDE25A1843A0069D1DE /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F0A6EDC25A1843A0069D1DE /* PostTableViewCell.xib */; };
 		2FE49DC225970CCF00299E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE49DC125970CCF00299E02 /* AppDelegate.swift */; };
 		2FE49DC425970CCF00299E02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE49DC325970CCF00299E02 /* SceneDelegate.swift */; };
 		2FE49DC925970CCF00299E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FE49DC725970CCF00299E02 /* Main.storyboard */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		0A6606F604FAA4BFB9A7FFBD /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F0A6ED925A173A50069D1DE /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
+		2F0A6EDB25A1843A0069D1DE /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		2F0A6EDC25A1843A0069D1DE /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		2FE49DBE25970CCF00299E02 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE49DC125970CCF00299E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FE49DC325970CCF00299E02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,7 @@
 		2FE49DD62597200D00299E02 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2F0A6EDB25A1843A0069D1DE /* PostTableViewCell.swift */,
 				2FE49DD72597202F00299E02 /* LoginViewController.swift */,
 				2FE49DD92597204A00299E02 /* HomeViewController.swift */,
 				2FE49DDB2597206500299E02 /* ImageSelectViewController.swift */,
@@ -118,6 +123,7 @@
 			isa = PBXGroup;
 			children = (
 				2FE49DC725970CCF00299E02 /* Main.storyboard */,
+				2F0A6EDC25A1843A0069D1DE /* PostTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -208,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FE49DCE25970CDF00299E02 /* LaunchScreen.storyboard in Resources */,
+				2F0A6EDE25A1843A0069D1DE /* PostTableViewCell.xib in Resources */,
 				2FE49DE9259779AD00299E02 /* GoogleService-Info.plist in Resources */,
 				2FE49DCB25970CDF00299E02 /* Assets.xcassets in Resources */,
 				2FE49DC925970CCF00299E02 /* Main.storyboard in Resources */,
@@ -263,6 +270,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F0A6EDD25A1843A0069D1DE /* PostTableViewCell.swift in Sources */,
 				2FE49DDC2597206500299E02 /* ImageSelectViewController.swift in Sources */,
 				2FE49DE325974C5300299E02 /* TabBarController.swift in Sources */,
 				2FE49DDA2597204A00299E02 /* HomeViewController.swift in Sources */,
