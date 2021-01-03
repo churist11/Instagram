@@ -15,6 +15,10 @@ final class HomeViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 
+	// MARK: - Stored Property
+
+	private var postArray: [PostData] = []
+
 	// MARK: - LifeCycle
 
 	override func viewDidLoad() {
@@ -56,14 +60,21 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 	// MARK: - DataSource
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		// FIXME:
-		return 0
+
+		return self.postArray.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		// FIXME: 
-		return UITableViewCell()
 
+		// Get custom cell
+		guard let cell = tableView.dequeueReusableCell(withIdentifier: C.POST_CELL_ID, for: indexPath) as? PostTableViewCell else {
+			return UITableViewCell()
+		}
+
+		// Invoke setting method
+		cell.setPostData(self.postArray[indexPath.row])
+
+		return cell
 	}
 
 }

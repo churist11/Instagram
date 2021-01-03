@@ -52,4 +52,4 @@ class PostData: NSObject {
 	}
 
 
-}
+}// MARK: EndLine

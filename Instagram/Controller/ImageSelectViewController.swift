@@ -78,7 +78,7 @@ final class ImageSelectViewController: UIViewController, UINavigationControllerD
     }
     */
 
-} // MARK: endline
+} // MARK: EndLine
 
 // MARK: - UIImagePickerControllerDelegate + CLImageEditorDelegate
 
