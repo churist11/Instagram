@@ -17,7 +17,11 @@ final class HomeViewController: UIViewController {
 
 	// MARK: - Stored Property
 
+	/// Its elements is used for cell creation
 	private var postArray: [PostData] = []
+
+	/// Firebase Listener
+	private var listener: ListenerRegistration!
 
 	// MARK: - LifeCycle
 
@@ -38,6 +42,77 @@ final class HomeViewController: UIViewController {
 		// Register the nib
 		self.tableView.register(nib, forCellReuseIdentifier: C.POST_CELL_ID)
     }
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		// Notify invoked this method
+		print("DEBUG_PRINT: viewWillAppear")
+
+		// Divide case that user is login or not
+		if Auth.auth().currentUser != nil {
+			// <<status: Login>>
+
+			// Check already not registered the listener
+			if self.listener == nil {
+
+				// Get Ref to documents
+				let postsRef = Firestore.firestore().collection(C.PostPath).order(by: C.dateDataKey, descending: true)
+
+				// Register snapshot to listener with query
+				self.listener = postsRef.addSnapshotListener { (querySnapshot, error) in
+
+					// Error handling
+					guard error == nil else {
+
+						// Log m
+						print("DEBUG_PRINT: snapshotの取得が失敗しました。\(error!)")
+
+						// Leave method
+						return
+					}
+
+					// Retrieve data from snapshot
+					guard let dataArray = querySnapshot?.documents else {
+
+						// Log m
+						print("DEBUG_PRINT: documentがありません。")
+
+						return
+					}
+
+					// Prepare post array with retrieved data
+					self.postArray = dataArray.map { (document) -> PostData in
+
+						// Log message
+						print("DEBUG_PRINT: document取得 \(document.documentID)")
+
+						// Return post data made with document
+						return PostData(document: document)
+					}
+
+					// Reflesh table view data
+					self.tableView.reloadData()
+				}
+			}
+		} else {
+			// <<status: Logout>>
+
+			// Confirm the listener already registered
+			if self.listener != nil {
+
+				// Clear the listener
+				self.listener.remove()
+				self.listener = nil
+
+				// Clear the array
+				self.postArray = []
+
+				// Reflesh table view data
+				self.tableView.reloadData()
+			}
+		}
+	}
 
 	// MARK: -
 
