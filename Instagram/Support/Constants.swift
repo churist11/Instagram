@@ -11,6 +11,10 @@ import Foundation
 
 struct C {
 
+	// MARK: - Asset name
+	static let ASSET_LIKE_EXIST = "like_exist"
+	static let ASSET_LIKE_NONE = "like_none"
+
 	// MARK: - VC
 
 	static let ID_LOGIN_VC = "Login"
