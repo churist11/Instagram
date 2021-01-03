@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0A6EDA25A173A50069D1DE /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0A6ED925A173A50069D1DE /* PostData.swift */; };
 		2FE49DC225970CCF00299E02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE49DC125970CCF00299E02 /* AppDelegate.swift */; };
 		2FE49DC425970CCF00299E02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE49DC325970CCF00299E02 /* SceneDelegate.swift */; };
 		2FE49DC925970CCF00299E02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FE49DC725970CCF00299E02 /* Main.storyboard */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		0A6606F604FAA4BFB9A7FFBD /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F0A6ED925A173A50069D1DE /* PostData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostData.swift; sourceTree = "<group>"; };
 		2FE49DBE25970CCF00299E02 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FE49DC125970CCF00299E02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2FE49DC325970CCF00299E02 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -56,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F0A6ED825A172F80069D1DE /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2F0A6ED925A173A50069D1DE /* PostData.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2FE49DB525970CCF00299E02 = {
 			isa = PBXGroup;
 			children = (
@@ -77,6 +87,7 @@
 		2FE49DC025970CCF00299E02 /* Instagram */ = {
 			isa = PBXGroup;
 			children = (
+				2F0A6ED825A172F80069D1DE /* Model */,
 				2FE49DEA259785BC00299E02 /* Support */,
 				2FE49DE1259720B700299E02 /* View */,
 				2FE49DD62597200D00299E02 /* Controller */,
@@ -257,6 +268,7 @@
 				2FE49DDA2597204A00299E02 /* HomeViewController.swift in Sources */,
 				2FE49DDE2597207D00299E02 /* PostViewController.swift in Sources */,
 				2FE49DE02597209700299E02 /* SettingViewController.swift in Sources */,
+				2F0A6EDA25A173A50069D1DE /* PostData.swift in Sources */,
 				2FE49DD82597202F00299E02 /* LoginViewController.swift in Sources */,
 				2FE49DC225970CCF00299E02 /* AppDelegate.swift in Sources */,
 				2FE49DC425970CCF00299E02 /* SceneDelegate.swift in Sources */,

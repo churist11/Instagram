@@ -82,9 +82,9 @@ final class PostViewController: UIViewController {
 
 			// 2. Declare dictionary describes posting components
 			let postDic: [String : Any] = [
-				"name": name,
-				"caption": self.captionTextField.text!,
-				"date": FieldValue.serverTimestamp()
+				C.nameDataKey: name,
+				C.captionDataKey: self.captionTextField.text!,
+				C.dateDataKey: FieldValue.serverTimestamp()
 			]
 
 			// 3. Store posting to Firestore
