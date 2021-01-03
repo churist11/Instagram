@@ -10,6 +10,14 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
 
+	// MARK: - IBOutlet
+
+	@IBOutlet weak var postImageView: UIImageView!
+	@IBOutlet weak var likeButton: UIButton!
+	@IBOutlet weak var likeLabel: UILabel!
+	@IBOutlet weak var dateLabel: UILabel!
+	@IBOutlet weak var captionLabel: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -20,5 +28,5 @@ class PostTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+
 }
