@@ -23,4 +23,8 @@ struct C {
 
 	static let ImagePath = "images"
 	static let PostPath = "posts"
+	static let nameDataKey = "name"
+	static let captionDataKey = "caption"
+	static let dateDataKey = "date"
+	static let likesDataKey = "likes"
 }
