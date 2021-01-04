@@ -33,18 +33,20 @@ final class PostViewController: UIViewController {
 	// MARK: - IBAction
 
 	@IBAction func handlePostButton(_ sender: UIButton) {
+		
+		// Start progress animation
+		SVProgressHUD.setStatus("投稿中...")
 
 		// Convert the image into filetype .jpg
 		guard let jpgData = self.postingImage.jpegData(compressionQuality: 0.75) else {
 			return
 		}
 
+
 		// Declare posting ref and image ref at Firebase
 		let postRef = Firestore.firestore().collection(C.PostPath).document()
 		let imageRef = Storage.storage().reference().child(C.ImagePath).child(postRef.documentID + ".jpg")
 
-		// Start progress animation
-		SVProgressHUD.setStatus("投稿中...")
 
 		// <<Upload image to Storage>>
 

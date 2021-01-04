@@ -15,12 +15,13 @@ class CommentViewController: UIViewController {
 	// MARK: - IBOutlet
 	@IBOutlet weak var commentTextField: UITextField!
 
+	// MARK: - Stored property
+	internal var postID: String!
+
 	// MARK: - LifeCycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
     }
 
 	// MARK: - IBAction
@@ -47,7 +48,26 @@ class CommentViewController: UIViewController {
 		// Start progress animation
 		SVProgressHUD.setStatus("送信中...")
 
-		// TODO: Write comment in document
+		// <Write the comment in document corresponding the cell>
+
+		// 1. Fetch current user's display name
+		guard let myName = Auth.auth().currentUser?.displayName else {
+			SVProgressHUD.showError(withStatus: "送信に失敗しました")
+			print("DEBUG_PRINT: authのユーザ情報にアクセスできません")
+
+			// Leave this method
+			return
+		}
+
+		// 2. Create update data
+			let updateValue = FieldValue.arrayUnion(["\(myName): \(comment)"])
+
+		// 3. Get document that specified by post id
+		let postRef = Firestore.firestore().collection(C.PostPath).document(self.postID)
+
+		// 4. Update the post data
+		postRef.updateData([C.commentDataKey: updateValue])
+
 
 		// Stop HUD animation
 		SVProgressHUD.showSuccess(withStatus: "送信しました")

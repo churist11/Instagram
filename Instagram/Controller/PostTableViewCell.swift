@@ -19,7 +19,8 @@ final class PostTableViewCell: UITableViewCell {
 	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var captionLabel: UILabel!
 	@IBOutlet weak var commentButton: UIButton!
-	
+	@IBOutlet weak var commentLabel: UILabel!
+
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -96,6 +97,8 @@ final class PostTableViewCell: UITableViewCell {
 			self.likeButton.setImage(image, for: .normal)
 		}
 
+		// <Display comment>
+		self.commentLabel.text = postData.comments.joined(separator: " // ")
 	}
 
 } // MARK: ENDLINE

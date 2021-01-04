@@ -36,4 +36,5 @@ struct C {
 	static let captionDataKey = "caption"
 	static let dateDataKey = "date"
 	static let likesDataKey = "likes"
+	static let commentDataKey = "comment"
 }

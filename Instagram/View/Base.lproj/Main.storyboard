@@ -126,7 +126,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Jt-Mi8">
                                 <rect key="frame" x="57" y="218" width="300" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="2Tb-P6-HaP"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="2Tb-P6-HaP"/>
                                 </constraints>
                                 <state key="normal" title="キャンセル" backgroundImage="btn"/>
                                 <connections>
@@ -145,6 +145,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HqK-Bk-KMa"/>
                     </view>
+                    <navigationItem key="navigationItem" id="JSi-fF-4xS"/>
                     <connections>
                         <outlet property="commentTextField" destination="urn-0b-OiU" id="v0W-lX-jzx"/>
                     </connections>

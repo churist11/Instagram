@@ -159,19 +159,34 @@ final class HomeViewController: UIViewController {
 		}
 	}
 
-	@objc func handleCommentButton(_ sender: UIButton) -> Void {
+	@objc func handleCommentButton(_ sender: UIButton, forEvent event: UIEvent) -> Void {
 
 		// Log message
 		print("DEBUG_PRINT: commentボタンがタップされました。")
 
-		// Get ref to commentVC
-		guard let commentVC = self.storyboard?.instantiateViewController(identifier: C.ID_COMMENT_VC) else {
+		// Look for index path of table view depends on touch location
+		let touch = event.allTouches?.first
+		let point = touch!.location(in: self.tableView)
+		guard let indexPath: IndexPath = self.tableView.indexPathForRow(at: point) else {
+			print("DEBUG_PRINT: Couldn't get indexpath")
+			return
+		}
+
+		// Take out data in handled cell
+		let postData = self.postArray[indexPath.row]
+
+		// Get instance of commentVC
+		guard let commentVC = self.storyboard?.instantiateViewController(identifier: C.ID_COMMENT_VC) as? CommentViewController else {
 			print("DEBUG_PRINT: Coudn't find commentVC on storyboard")
 			return
 		}
 
+		// Set id in post data
+		commentVC.postID = postData.id
+
 		// Show Comment VC
 		self.show(commentVC, sender: self)
+
 	}
 
     /*
@@ -209,7 +224,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 		// Set to invoke custom method by handling button in the cell
 		cell.likeButton.addTarget(self, action: #selector(self.handleLikeButton(_:forEvent:)), for: .touchUpInside)
-		cell.commentButton.addTarget(self, action: #selector(self.handleCommentButton(_:)), for: .touchUpInside)
+		cell.commentButton.addTarget(self, action: #selector(self.handleCommentButton(_:forEvent:)), for: .touchUpInside)
 
 		return cell
 	}

@@ -95,6 +95,7 @@
             <connections>
                 <outlet property="captionLabel" destination="71k-KK-1VJ" id="oSw-4T-ZDJ"/>
                 <outlet property="commentButton" destination="GO3-0J-zkq" id="tFn-9O-alA"/>
+                <outlet property="commentLabel" destination="fPe-rp-NH4" id="gDY-dC-wyk"/>
                 <outlet property="dateLabel" destination="ZRu-fd-ptK" id="Oru-kh-B45"/>
                 <outlet property="likeButton" destination="Squ-lW-s5p" id="gyl-gS-35Y"/>
                 <outlet property="likeLabel" destination="woZ-RL-CRD" id="Zdq-cm-MZh"/>
