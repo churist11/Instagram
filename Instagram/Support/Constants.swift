@@ -22,6 +22,7 @@ struct C {
 	static let ID_IMAGE_SELECT_VC = "ImageSelect"
 	static let ID_POST_VC = "Post"
 	static let ID_SETTING_VC = "Setting"
+	static let ID_COMMENT_VC = "Comment"
 
 	// MARK: - Custom identifier
 	static let POST_NIB_NAME = "PostTableViewCell"

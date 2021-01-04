@@ -97,6 +97,62 @@
             </objects>
             <point key="canvasLocation" x="-1716" y="-1615"/>
         </scene>
+        <!--Comment View Controller-->
+        <scene sceneID="p9P-5Q-w3g">
+            <objects>
+                <viewController storyboardIdentifier="Comment" id="QNj-RC-Ll2" customClass="CommentViewController" customModule="Instagram" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l89-bj-HfR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="コメントを入力" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="urn-0b-OiU">
+                                <rect key="frame" x="57" y="124" width="300" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="SEZ-Fa-OR0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eC7-ed-yCS">
+                                <rect key="frame" x="57" y="168" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="X65-Rg-i6F"/>
+                                </constraints>
+                                <state key="normal" title="送信" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleSubmitButton:" destination="QNj-RC-Ll2" eventType="touchUpInside" id="ai7-jQ-FY2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyf-Jt-Mi8">
+                                <rect key="frame" x="57" y="218" width="300" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="2Tb-P6-HaP"/>
+                                </constraints>
+                                <state key="normal" title="キャンセル" backgroundImage="btn"/>
+                                <connections>
+                                    <action selector="handleCancelButton:" destination="QNj-RC-Ll2" eventType="touchUpInside" id="eiX-Qr-1ev"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPurpleColor" red="0.68627450980000004" green="0.32156862749999998" blue="0.87058823529999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="fyf-Jt-Mi8" firstAttribute="centerX" secondItem="l89-bj-HfR" secondAttribute="centerX" id="HS2-Po-kSx"/>
+                            <constraint firstItem="eC7-ed-yCS" firstAttribute="top" secondItem="urn-0b-OiU" secondAttribute="bottom" constant="10" id="W9b-fv-EC4"/>
+                            <constraint firstItem="urn-0b-OiU" firstAttribute="top" secondItem="HqK-Bk-KMa" secondAttribute="top" constant="80" id="WfO-5x-RMA"/>
+                            <constraint firstItem="fyf-Jt-Mi8" firstAttribute="top" secondItem="eC7-ed-yCS" secondAttribute="bottom" constant="10" id="cXz-Cc-PEu"/>
+                            <constraint firstItem="eC7-ed-yCS" firstAttribute="centerX" secondItem="l89-bj-HfR" secondAttribute="centerX" id="kye-qj-461"/>
+                            <constraint firstItem="urn-0b-OiU" firstAttribute="centerX" secondItem="l89-bj-HfR" secondAttribute="centerX" id="wPT-fK-dr8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="HqK-Bk-KMa"/>
+                    </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="urn-0b-OiU" id="v0W-lX-jzx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="88S-nm-Zqb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2658" y="-661"/>
+        </scene>
         <!--ホーム-->
         <scene sceneID="p5g-ns-1mH">
             <objects>
@@ -107,7 +163,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Jkf-gV-Dtv">
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="0.59792380140000001" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="ti8-vm-nSr">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>

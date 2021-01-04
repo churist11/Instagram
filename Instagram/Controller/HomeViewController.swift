@@ -114,7 +114,7 @@ final class HomeViewController: UIViewController {
 		}
 	}
 
-	// MARK: - Objc Method
+	// MARK: - Objc Custom Method
 
 	// Did touchup inside the cell's like buttton
 	@objc func handleLikeButton(_ sender: UIButton, forEvent event: UIEvent) -> Void {
@@ -159,6 +159,21 @@ final class HomeViewController: UIViewController {
 		}
 	}
 
+	@objc func handleCommentButton(_ sender: UIButton) -> Void {
+
+		// Log message
+		print("DEBUG_PRINT: commentボタンがタップされました。")
+
+		// Get ref to commentVC
+		guard let commentVC = self.storyboard?.instantiateViewController(identifier: C.ID_COMMENT_VC) else {
+			print("DEBUG_PRINT: Coudn't find commentVC on storyboard")
+			return
+		}
+
+		// Show Comment VC
+		self.show(commentVC, sender: self)
+	}
+
     /*
     // MARK: - Navigation
 
@@ -192,8 +207,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 		// Invoke setting method
 		cell.setPostData(self.postArray[indexPath.row])
 
-		// Set action triggerd by cell's like button
+		// Set to invoke custom method by handling button in the cell
 		cell.likeButton.addTarget(self, action: #selector(self.handleLikeButton(_:forEvent:)), for: .touchUpInside)
+		cell.commentButton.addTarget(self, action: #selector(self.handleCommentButton(_:)), for: .touchUpInside)
 
 		return cell
 	}
