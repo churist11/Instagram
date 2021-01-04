@@ -114,7 +114,50 @@ final class HomeViewController: UIViewController {
 		}
 	}
 
-	// MARK: -
+	// MARK: - Objc Method
+
+	// Did touchup inside the cell's like buttton
+	@objc func handleLikeButton(_ sender: UIButton, forEvent event: UIEvent) -> Void {
+
+		// Log message
+		print("DEBUG_PRINT: likeボタンがタップされました。")
+
+		// Look for index path of table view depends on touch location
+		let touch = event.allTouches?.first
+		let point = touch!.location(in: self.tableView)
+		guard let indexPath: IndexPath = self.tableView.indexPathForRow(at: point) else {
+			print("DEBUG_PRINT: Couldn't get indexpath")
+			return
+		}
+
+		// Take out data in handled cell
+		let postData = self.postArray[indexPath.row]
+
+		// Update likes
+		if let myid = Auth.auth().currentUser?.uid {
+
+			// Declare update data
+			var updateValue: FieldValue
+			if postData.isLiked {
+
+				// Already liked, create removing update data
+				updateValue = FieldValue.arrayRemove([myid])
+
+			} else {
+
+				// Not liked, create adding update data
+				updateValue = FieldValue.arrayUnion([myid])
+			}
+
+			// <Write the update data into likes>
+
+			// 1. Get document that specified by post id
+			let postRef = Firestore.firestore().collection(C.PostPath).document(postData.id)
+
+			//2. Update the post data
+			postRef.updateData([C.likesDataKey: updateValue])
+		}
+	}
 
     /*
     // MARK: - Navigation
@@ -148,6 +191,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 
 		// Invoke setting method
 		cell.setPostData(self.postArray[indexPath.row])
+
+		// Set action triggerd by cell's like button
+		cell.likeButton.addTarget(self, action: #selector(self.handleLikeButton(_:forEvent:)), for: .touchUpInside)
 
 		return cell
 	}
